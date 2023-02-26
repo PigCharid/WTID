@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var demo1;
+    let demo2;
+    const demo3 = 3;
+
+    function test1() {
+      // var定义变量 
+      demo1 = 1;
+      // let的定义的外部变量在函数内部可以访问到
+      demo2 = "demo2";
+      //常量不能重新赋值
+      // demo3 = 6;
+      console.log(demo1);
+      console.log(demo2);
+      console.log(demo3);
+    }
+
+    function test2() {
+      let demo4 = ["a","b"]
+      console.log(demo4)
+    }
+    // 函数内部let定义的变量外部无法访问
+    // console.log(demo4)
+
+    test1();
+    test2();
+
+    // const定义的数组
+    const demo5 = ["1","2"];
+    // 不能重新赋值,但是可以通过访问数组的形式访问
+    // demo5 = ["a"];
+    demo5.push("3");
+    demo5[0] = "0";
+    console.log(demo5);
+
+    // const定义的对象
+    const demo6 ={
+      name:"张三",
+      age:"26"
+    };
+    // 不能重新赋值
+    // demo6 = {
+    //   name : "Pig"
+    // }
+    demo6.gender = "man";
+    demo6.name = "Charid";
+    console.log(demo6);
+
+    let a = 1, b = 2;
+
+
+  </script>
+
+</body>
+
+</html>
