@@ -1,45 +1,20 @@
-# 【DOM】
+# DOM
 
-> 原创内容，转载请注明出处！
+# 一、DOM基础知识
 
-# 一、DOM基本概念
+## 1.1 概念
 
-DOM（Document Object Model，文档对象模型）是 JavaScript 操作 HTML 文档的接口，使文档操作变得非常优雅、简便。
+DOM（Document Object Model，文档对象模型）是 JavaScript 操作 HTML 文档的接口
 
-DOM 最大的特点就是将 HTML 文档表示为 “节点树”。
+## 1.2 DOM树
 
-# 二、DOM节点树
-
-```html
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <title>DOM</title>
-</head>
-
-<body>
-    <h1>IMOOC</h1>
-    <div>
-        <h2>Coder Dream</h2>
-        <img src="logo.png">
-        <div class="box">
-            慕课专栏
-        </div>
-    </div>
-</body>
-
-</html>
-```
-
-【DOM】
+DOM Tree 是指通过 DOM 将 HTML 页面进行解析，并生成的 HTML tree 树状结构和对应访问方法
 
 ![](mark-img/5782ab2ac7a34aaca8b1380ee9f21089.png)
 
-> 整个 html 文档就对应一个 document 对象，可以操作 html 文档里面所有的标记和文本等。
+> 整个 html 文档就对应一个 document 对象，可以操作 html 文档里面所有的内容
 
-# 三、nodeType
+## 1.3 nodeType
 
 节点的 nodeType 属性可以显示这个节点具体的类型。
 
@@ -53,17 +28,9 @@ DOM 最大的特点就是将 HTML 文档表示为 “节点树”。
 | 9          | document 节点                   |
 | 10         | DTD 节点（文档类型声明）        |
 
-# 四、document
+# 二、document
 
-## 4.1 访问元素节点
-
-所谓 “访问” 元素节点，就是指 “得到”、“获取” 页面上的元素节点。
-
-对节点进行操作，第一步就是要得到它。
-
-访问元素节点主要依靠 document 对象。
-
-## 4.2 认识 document 对象
+## 2.1 认识 document 对象
 
 document 对象是 DOM 中最重要的东西，几乎所有 DOM 的功能都封装在了 document 对象中。
 
@@ -76,7 +43,7 @@ typeof document;	// object
 document.nodeType;	// 9
 ```
 
-## 4.3 访问元素节点的常用方法
+## 2.3 访问元素节点的常用方法
 
 注意：以下方法的参数都是字符串值 `''`。
 
@@ -94,7 +61,7 @@ document.nodeType;	// 9
 >
 > Selector：选择器。
 
-## 4.4 getElementById()
+## 2.3 getElementById()
 
 `document.getElementById()` 功能是通过 id 得到元素节点。
 
@@ -118,7 +85,7 @@ var para = document.getElementById('para');
 >
 > 原则上，html 中同一名称的 id 也只能出现一次。
 
-## 4.5 延迟运行
+## 2.4 延迟运行
 
 在测试 DOM 代码时，通常 JS 代码要写到 HTML 节点的后面，否则 JS 无法找到相应的 HTML 节点。
 
@@ -203,7 +170,7 @@ var para = document.getElementById('para');
 </html>
 ```
 
-## 4.6 getElementsByTagName()
+## 2.5 getElementsByTagName()
 
 `getElementsByTagName()` 方法的功能是通过标签名得到节点数组。
 
@@ -226,7 +193,7 @@ var ps = document.getElementsByTagName('p');
 
 即使页面上只有一个指定标签名的节点，也将得到长度为 1 的数组。
 
-任何一个节点元素也可以调用 getElementsByTagName() 方法，从而得到其内部的某种标签名的元素节点。
+> 任何一个节点元素也可以调用 getElementsByTagName() 方法，从而得到其内部的某种标签名的元素节点。
 
 ```html
 <!DOCTYPE html>
@@ -391,7 +358,7 @@ querySelector() 方法从 IE8 开始兼容，但从 IE9 开始支持 CSS3 的选
 </html>
 ```
 
-# 五、节点的关系
+# 三、节点的关系
 
 ![](mark-img/3c085acf7fcb4bb98af133369c922241.png)
 
@@ -490,7 +457,7 @@ DOM 中，文本节点也属于节点，在使用节点的关系时一定要注�
 
 ![](mark-img/5236374c628640628b2be7c232cd99b7.png)
 
-# 六、书写常见的节点关系函数
+# 四、书写常见的节点关系函数
 
 书写 IE6 也能兼容的 “寻找所有元素子节点” 函数。
 
@@ -604,9 +571,9 @@ DOM 中，文本节点也属于节点，在使用节点的关系时一定要注�
 </html>
 ```
 
-# 七、节点操作
+# 五、节点操作
 
-## 7.1 如何改变元素节点中的内容
+## 5.1 如何改变元素节点中的内容
 
 改变元素节点中的内容可以使用两个相关属性。
 
@@ -722,7 +689,7 @@ DOM 中，文本节点也属于节点，在使用节点的关系时一定要注�
 
 <img src="mark-img/c8210b44616242fc9b3465ac93d23c23.png" style="zoom: 50%;" />
 
-## 7.2 如何改变元素节点的CSS样式
+## 5.2 如何改变元素节点的CSS样式
 
 改变元素节点的 CSS 样式需要使用这样的语句：
 
@@ -773,7 +740,7 @@ DOM 中，文本节点也属于节点，在使用节点的关系时一定要注�
 
 > JS 修改的 CSS 样式，属于行内式，优先级最高！所以可以覆盖原有的样式。
 
-## 7.3 如何改变元素节点的HTML属性
+## 5.3 如何改变元素节点的HTML属性
 
 标准 W3C 属性，如 `src`、`href`、`title`、`alt` 等等，只需要直接打点进行更改即可。
 
@@ -847,9 +814,9 @@ alert(n);
 
 <img src="mark-img/2fba8d550d464f37ae300e2b54eed0ce.png" style="zoom:50%;" />
 
-# 八、节点的创建、移动、删除和克隆
+# 六、节点的创建、移动、删除和克隆
 
-## 8.1 节点的创建
+## 6.1 节点的创建
 
 `document.createElement()` 方法用于创建一个指定 tag name 的 HTML 元素。
 
@@ -857,13 +824,13 @@ alert(n);
 var oDiv = document.createElement('div');
 ```
 
-## 8.2 "孤儿节点"
+## 6.2 "孤儿节点"
 
 新创建出的节点是 “孤儿节点”，这意味着它并没有被挂载到 DOM 树上，我们无法看见它。
 
 必须继续使用 `appendChild()` 或 `insertBefore()` 方法将孤儿节点插入到 DOM 树上。
 
-### 8.2.1 appendChild()
+### 6.2.1 appendChild()
 
 任何已经在 DOM 树上的节点，都可以调用 appendChild() 方法，它可以将孤儿节点挂载到它的内部，成为它的最后一个子节点。
 
@@ -905,7 +872,7 @@ var oDiv = document.createElement('div');
 
 <img src="mark-img/e2ffcdd3c509446280c97bc1450c49f3.png" style="zoom:50%;" />
 
-### 8.2.2 insertBefore()
+### 6.2.2 insertBefore()
 
 任何已经在 DOM 树上的节点，都可以调用 insertBefore() 方法，它可以将孤儿节点挂载到它的内部，成为它的 “标杆子节点” 之前的节点。
 
@@ -948,7 +915,7 @@ var oDiv = document.createElement('div');
 
 <img src="mark-img/de9796a998234c4b9bfaa3bddf70687d.png" style="zoom:50%;" />
 
-## 8.3 节点创建小案例
+## 6.3 节点创建小案例
 
 【动态创建一个20行12列的表格】
 
@@ -1045,7 +1012,7 @@ var oDiv = document.createElement('div');
 
 ![](mark-img/86dcaf404820444abe361c3a5ea4a670.png)
 
-## 8.4 移动节点
+## 6.4 移动节点
 
 如果将已经挂载到 DOM 树上的节点成为 `appendChild()` 或者 `insertBefore()` 的参数，这个节点将会被移动。
 
@@ -1097,7 +1064,7 @@ var oDiv = document.createElement('div');
 
 <img src="mark-img/7cd9c894d8e04e0cbb64ce710df9aab6.png" style="zoom:50%;" />
 
-## 8.5 删除节点
+## 6.5 删除节点
 
 `removeChild()` 方法从 DOM 中删除一个子节点。
 
@@ -1139,7 +1106,7 @@ var oDiv = document.createElement('div');
 
 <img src="mark-img/8ba0e61b217a42a28e3e3ecec215ff58.png" style="zoom:50%;" />
 
-## 8.6 克隆节点
+## 6.6 克隆节点
 
 `cloneNode()` 方法可以克隆节点，克隆出的节点是 “孤儿节点”。
 
@@ -1222,7 +1189,7 @@ var 孤儿节点 = 老节点.cloneNode(true);
 
 <img src="mark-img/41d2b250d63e4fd3bf14752815602cfe.png" style="zoom:50%;" />
 
-# 九、事件监听
+# 七、事件监听
 
 DOM 允许我们书写 JavaScript 代码以让 HTML 元素作出反应。
 
@@ -1395,7 +1362,7 @@ oBox.onclick = fun;
 
 更多有关窗口或页面的事件在 BOM 课程中介绍。
 
-# 十、事件传播
+# 八、事件传播
 
 ```html
 <!DOCTYPE html>
